@@ -8,4 +8,4 @@ enum class TranslateError {
     UNKNOWN_ERROR
 }
 
-class TranslateException(private val error: TranslateError): Exception("An error occurred wile translating: $error")
+class TranslateException(val error: TranslateError): Exception("An error occurred wile translating: $error")
