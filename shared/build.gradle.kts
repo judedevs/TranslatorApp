@@ -81,3 +81,10 @@ android {
         minSdk = 24
     }
 }
+
+sqldelight {
+    database("TranslateDatabase") {
+        packageName = "com.judedevs.translatorapp.database"
+        sourceFolders = listOf("sqldelight")
+    }
+}
