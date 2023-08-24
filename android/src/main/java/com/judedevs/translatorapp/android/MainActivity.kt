@@ -11,9 +11,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.judedevs.translatorapp.Greeting
 import com.judedevs.translatorapp.android.core.presentation.Routes
 import com.judedevs.translatorapp.android.translate.presentation.AndroidTranslateViewModel
@@ -48,6 +50,18 @@ fun TranslateRoot() {
                 state = state,
                 onEvent = viewModel::onEvent
             )
+        }
+        composable(
+            route = Routes.VOICE_TO_TEXT + "/{languageCode}",
+            arguments = listOf(
+                navArgument("languageCode") {
+                    type = NavType.StringType,
+                        defaultValue = "en"
+                }
+            )
+        )
+        {
+            Text("Voice to text")
         }
     }
 }
