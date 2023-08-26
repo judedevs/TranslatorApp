@@ -14,4 +14,5 @@
     <string name="server_error">Oops, an unexpected error occured. Please try again.</string>
     <string name="unknown_error">Oops, an unknown error has occured. Please contact support.</string>
     <string name="record_audio">Record audio</string>
+    <string name="error_speech_recognition">Speech recognition is not available.</string>
 </resources>
