@@ -20,6 +20,7 @@ import com.judedevs.translatorapp.Greeting
 import com.judedevs.translatorapp.android.core.presentation.Routes
 import com.judedevs.translatorapp.android.translate.presentation.AndroidTranslateViewModel
 import com.judedevs.translatorapp.android.translate.presentation.TranslateScreen
+import com.judedevs.translatorapp.translate.presentation.TranslateEvent
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -48,15 +49,22 @@ fun TranslateRoot() {
             val state by viewModel.state.collectAsState()
             TranslateScreen(
                 state = state,
-                onEvent = viewModel::onEvent
+                onEvent = { event ->
+                    when(event) {
+                        is TranslateEvent.RecordAudio -> {
+                            navController.navigate(Routes.VOICE_TO_TEXT + "/${state.fromLanguage.language.langCode}")
+                        }
+                        else -> viewModel.onEvent(event)
+                    }
+                }
             )
         }
         composable(
             route = Routes.VOICE_TO_TEXT + "/{languageCode}",
             arguments = listOf(
                 navArgument("languageCode") {
-                    type = NavType.StringType,
-                        defaultValue = "en"
+                    type = NavType.StringType;
+                    defaultValue = "en"
                 }
             )
         )
