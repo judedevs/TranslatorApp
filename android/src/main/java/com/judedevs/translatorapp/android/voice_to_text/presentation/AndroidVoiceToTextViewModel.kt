@@ -5,8 +5,10 @@ import androidx.lifecycle.viewModelScope
 import com.judedevs.translatorapp.voice_to_text.domain.VoiceToTextParser
 import com.judedevs.translatorapp.voice_to_text.presentation.VoiceToTextEvent
 import com.judedevs.translatorapp.voice_to_text.presentation.VoiceToTextViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+@HiltViewModel
 class AndroidVoiceToTextViewModel @Inject constructor(
     private val parser: VoiceToTextParser
 ): ViewModel() {

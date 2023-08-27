@@ -11,10 +11,11 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class VoiceToTextViewModel(
     private val parser: VoiceToTextParser,
-    coroutineScope: CoroutineScope? = null
+    private val coroutineScope: CoroutineScope? = null
 ) {
     private val viewModelScope = coroutineScope ?: CoroutineScope(Dispatchers.Main)
 
@@ -22,9 +23,9 @@ class VoiceToTextViewModel(
     val state = _state.combine(parser.state) { state, voiceResult ->
         state.copy(
             spokenText = voiceResult.result,
-            recordError = voiceResult.error,
+            recordError = if(state.canRecord) { voiceResult.error } else { "Can't record without permission" },
             displayState = when {
-                voiceResult.error != null -> DisplayState.ERROR
+                !state.canRecord || voiceResult.error != null -> DisplayState.ERROR
                 voiceResult.result.isNotBlank() && !voiceResult.isSpeaking -> DisplayState.DISPLAYING_RESULTS
                 voiceResult.isSpeaking -> DisplayState.SPEAKING
                 else -> DisplayState.WAITING_TO_TALK
@@ -36,14 +37,16 @@ class VoiceToTextViewModel(
 
     init {
         viewModelScope.launch {
-            while (true) {
-                if(state.value.displayState == DisplayState.SPEAKING) {
-                    _state.update {
-                        it.copy(
-                            powerRatios = it.powerRatios + parser.state.value.powerRatio
-                        )
+            withContext(Dispatchers.Default) {
+                while (true) {
+                    if (state.value.displayState == DisplayState.SPEAKING) {
+                        _state.update {
+                            it.copy(
+                                powerRatios = it.powerRatios + parser.state.value.powerRatio
+                            )
+                        }
+                        delay(50L)
                     }
-                    delay(50L)
                 }
             }
         }
@@ -68,6 +71,7 @@ class VoiceToTextViewModel(
     }
 
     private fun toggleListening(languageCode: String) {
+        _state.update { it.copy(powerRatios = emptyList()) }
         parser.cancel()
         if(state.value.displayState == DisplayState.SPEAKING) {
             parser.stopListening()
