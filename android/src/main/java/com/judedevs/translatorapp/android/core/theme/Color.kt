@@ -5,14 +5,13 @@ import androidx.compose.material.lightColors
 import androidx.compose.ui.graphics.Color
 import com.judedevs.translatorapp.core.presentation.Colors
 
-val AccentViolet = Color(Colors.AccentViolet)
-val LightBlue = Color(Colors.LightBlue)
+val DarkBlueGrey = Color(Colors.DarkBlueGrey)
 val LightBlueGrey = Color(Colors.LightBlueGrey)
 val TextBlack = Color(Colors.TextBlack)
-val DarkGrey = Color(Colors.DarkGrey)
+val LightGrey = Color(Colors.LightGrey)
 
 val lightThemeColors = lightColors(
-    primary = AccentViolet,
+    primary = DarkBlueGrey,
     background = LightBlueGrey,
     onPrimary = Color.White,
     onBackground = TextBlack,
@@ -21,10 +20,10 @@ val lightThemeColors = lightColors(
 )
 
 val darkThemeColors = darkColors(
-    primary = AccentViolet,
-    background = DarkGrey,
-    onPrimary = Color.White,
+    primary = LightGrey,
+    background = DarkBlueGrey,
+    onPrimary = DarkBlueGrey,
     onBackground = Color.White,
-    surface = DarkGrey,
+    surface = DarkBlueGrey,
     onSurface = Color.White
 )

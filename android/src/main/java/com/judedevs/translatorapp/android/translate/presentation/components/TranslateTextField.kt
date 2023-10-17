@@ -38,7 +38,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.judedevs.translatorapp.android.R
-import com.judedevs.translatorapp.android.core.theme.LightBlue
+import com.judedevs.translatorapp.android.core.theme.DarkBlueGrey
 import com.judedevs.translatorapp.core.presentation.UILanguage
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -126,7 +126,7 @@ private fun TranslatedTextField(
                     contentDescription = stringResource(
                         id = R.string.copy
                     ),
-                    tint = LightBlue,
+                    tint = DarkBlueGrey,
                 )
             }
             IconButton(onClick = onCloseClick) {
@@ -135,7 +135,7 @@ private fun TranslatedTextField(
                     contentDescription = stringResource(
                         id = R.string.close
                     ),
-                    tint = LightBlue,
+                    tint = DarkBlueGrey,
                 )
             }
         }
@@ -160,7 +160,7 @@ private fun TranslatedTextField(
                     contentDescription = stringResource(
                         id = R.string.copy
                     ),
-                    tint = LightBlue,
+                    tint = DarkBlueGrey,
                 )
             }
             IconButton(onClick = onSpeakerClick) {
@@ -169,7 +169,7 @@ private fun TranslatedTextField(
                     contentDescription = stringResource(
                         id = R.string.play_loud
                     ),
-                    tint = LightBlue,
+                    tint = DarkBlueGrey,
                 )
             }
         }
@@ -205,7 +205,7 @@ private fun IdleTranslateTextField(
         if(fromText.isEmpty() && !isFocused) {
             Text(
                 text = stringResource(id = R.string.enter_text_to_translate),
-                color = LightBlue
+                color = DarkBlueGrey
             )
         }
 

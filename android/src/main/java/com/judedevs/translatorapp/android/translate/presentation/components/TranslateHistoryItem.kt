@@ -18,7 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.judedevs.translatorapp.android.core.theme.LightBlue
+import com.judedevs.translatorapp.android.core.theme.DarkBlueGrey
 import com.judedevs.translatorapp.translate.presentation.UIHistoryItem
 
 @Composable
@@ -47,7 +47,7 @@ fun TranslateHistoryItem(
             Spacer(modifier = Modifier.width(16.dp))
             Text(
                 text = item.fromText,
-                color = LightBlue,
+                color = DarkBlueGrey,
                 style = MaterialTheme.typography.body2
                 )
         }

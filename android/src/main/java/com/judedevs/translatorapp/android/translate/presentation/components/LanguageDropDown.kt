@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.judedevs.translatorapp.android.R
-import com.judedevs.translatorapp.android.core.theme.LightBlue
+import com.judedevs.translatorapp.android.core.theme.DarkBlueGrey
 import com.judedevs.translatorapp.core.presentation.UILanguage
 
 @Composable
@@ -62,7 +62,7 @@ fun LanguageDropDown(
             Spacer(modifier = Modifier.size(16.dp))
             Text(
                 text = language.language.langName,
-                color = LightBlue
+                color = DarkBlueGrey
                 )
             Icon(
                 imageVector = if(isOpen) Icons.Default.ArrowDropUp else Icons.Default.ArrowDropDown,
@@ -71,7 +71,7 @@ fun LanguageDropDown(
                 } else  {
                     stringResource(id = R.string.open)
                         },
-                tint = LightBlue,
+                tint = DarkBlueGrey,
                 modifier = Modifier.size(30.dp)
             )
         }

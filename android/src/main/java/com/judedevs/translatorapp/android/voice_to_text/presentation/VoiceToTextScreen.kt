@@ -33,6 +33,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -40,7 +41,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.judedevs.translatorapp.android.R
-import com.judedevs.translatorapp.android.core.theme.LightBlue
+import com.judedevs.translatorapp.android.core.theme.DarkBlueGrey
 import com.judedevs.translatorapp.android.voice_to_text.presentation.components.VoiceRecorderDisplay
 import com.judedevs.translatorapp.voice_to_text.presentation.DisplayState
 import com.judedevs.translatorapp.voice_to_text.presentation.VoiceToTextEvent
@@ -122,7 +123,7 @@ fun VoiceToTextScreen(
                         Icon(
                             imageVector = Icons.Rounded.Refresh,
                             contentDescription = stringResource(id = R.string.record_again),
-                            tint = LightBlue
+                            tint = DarkBlueGrey
                             )
                     }
                 }
@@ -149,7 +150,7 @@ fun VoiceToTextScreen(
                 if(state.displayState == DisplayState.SPEAKING)
                     Text(
                         text = stringResource(id = R.string.listening),
-                        color = LightBlue,
+                        color = DarkBlueGrey,
                         modifier = Modifier.align(Alignment.Center)
                         )
             }

@@ -1,9 +1,8 @@
 package com.judedevs.translatorapp.core.presentation
 
 object Colors {
-    const val LightBlue = 0xFFA8A5BB
-    const val LightBlueGrey = 0xFFF6F4F4
-    const val AccentViolet = 0xFF5643C9
-    const val TextBlack = 0xFF111111
-    const val DarkGrey = 0xFF282C31
+    const val LightBlueGrey = 0xFFEFF2F7
+    const val DarkBlueGrey = 0xFFEFF2F7
+    const val TextBlack = 0xFF1D1B20
+    const val LightGrey = 0xFFE4E4E4
 }

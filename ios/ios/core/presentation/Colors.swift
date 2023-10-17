@@ -11,7 +11,13 @@ import SwiftUI
 import shared
 
 extension Color {
-    
+    // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators/
+    // Bits 24-31 are alpha, 16-23 are red, 8-15 are green, 0-7 are blue
+    // Example
+    // if pink = 0xCC6699
+    // redComponent = (pink & 0xFF0000) >> 16    --> redComponent is 0xCC, or 204
+    // greenComponent = (pink & 0x00FF00) >> 8   --> greenComponent is 0x66, or 102
+    // blueComponent = pink & 0x0000FF           --> blueComponent is 0x99, or 153
     init(hex: Int64, alpha: Double = 1) {
         self.init(
             .sRGB,
