@@ -9,12 +9,13 @@ val LightBlueGrey = Color(Colors.LightBlueGrey)
 val DarkBlueGrey = Color(Colors.DarkBlueGrey)
 val TextBlack = Color(Colors.TextBlack)
 val LightGrey = Color(Colors.LightGrey)
+val DarkGrey = Color(Colors.DarkGrey)
 
 val lightThemeColors = lightColors(
     primary = DarkBlueGrey,
     background = LightBlueGrey,
     onPrimary = Color.White,
-    onBackground = TextBlack,
+    onBackground = DarkBlueGrey,
     surface = Color.White,
     onSurface = TextBlack
 )

@@ -1,6 +1,7 @@
 package com.judedevs.translatorapp.android.translate.presentation.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -13,7 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.judedevs.translatorapp.android.R
-import com.judedevs.translatorapp.core.presentation.UILanguage
+import com.judedevs.translatorapp.android.TranslatorTheme
 
 @Composable
 fun SwapLanguagesButton(
@@ -22,14 +23,11 @@ fun SwapLanguagesButton(
 ) {
     IconButton(
         onClick = onClick,
-        modifier = modifier
-            .clip(CircleShape)
-            .background(MaterialTheme.colors.primary)
     ) {
         Icon(
-            imageVector = ImageVector.vectorResource(id = R.drawable.swap_languages),
+            imageVector = ImageVector.vectorResource(id = R.drawable.swap),
             contentDescription = stringResource(id = R.string.swap_languages),
-            tint = MaterialTheme.colors.onPrimary
+            tint = MaterialTheme.colors.primary
         )
     }
 }
